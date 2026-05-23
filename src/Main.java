@@ -1,13 +1,37 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 void main() {
-  //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-  // to see how IntelliJ IDEA suggests fixing it.
-  IO.println(String.format("Hello and welcome!"));
+  Scanner teclado = new Scanner(System.in);
 
-  for (int i = 1; i <= 5; i++) {
-    //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-    // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-    IO.println("i = " + i);
+  System.out.println("CALCULADORA");
+
+  while (true){
+
+    try{
+      System.out.println("Bienvenid@ - ¿Que operación va a realizar?");
+      System.out.println(
+              "1. Suma \n" +
+              "2. Resta \n" +
+              "3. Multipliación \n" +
+              "4. División \n" +
+              "5. Cerrar Programa");
+
+      System.out.print("\nOpción: ");
+      int opcion = teclado.nextInt();
+
+      if (opcion == 5){
+        System.out.println("Gracias por usar el programa");
+        break;
+      }
+      else if (opcion > 5) {
+        System.out.println("Opción invalida, eliga una de las 5 opciones mostrada");
+        continue;
+      }
+      else {
+        System.out.println("continuará...");
+      }
+    }
+    catch (Exception e){
+      System.out.println("Número errado y/o caracter invalido");
+      break;
+    }
   }
 }
