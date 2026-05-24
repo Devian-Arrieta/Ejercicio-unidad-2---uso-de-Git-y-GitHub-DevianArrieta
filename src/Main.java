@@ -17,51 +17,59 @@ void main() {
       System.out.print("\nOpción: ");
       int opcion = teclado.nextInt();
 
-      if (opcion == 5){
+      if (opcion == 5){ // si es opción 5 cierra el programa
         System.out.println("Gracias por usar el programa");
         break;
       }
-      else if (opcion > 5) {
+      else if (opcion > 5 || opcion <= 0) { // si ingresa un numero no invalido no continua el programa
         System.out.println("Opción invalida, eliga una de las 5 opciones mostrada");
         continue;
       }
-      else {
-        System.out.println("Ingresa el primero número: ");
+      else { // si ingresa las opciones correctas continua
+        System.out.println("Ingresa el primer número: "); // pide el 1 numero
         int num1 = teclado.nextInt();
 
-        System.out.println("Ingrese el segundo numero: ");
+        System.out.println("Ingrese el segundo numero: "); // pide el 2 numero
         int num2 = teclado.nextInt();
 
+        // se declaran las variables que se van a usar para el mensaje de respuesta
         double resultado = 0;
         String operacion = "", signo = "";
 
-        if(opcion == 1){
+        if(opcion == 1){ // realiza la suma
           resultado = num1 + num2;
           operacion = "suma";
           signo = "+";
         }
-        else if (opcion == 2) {
+        else if (opcion == 2) { // realiza la resta
           resultado = num1 - num2;
           operacion = "resta";
           signo = "-";
         }
-        else if (opcion == 3) {
+        else if (opcion == 3) { // realiza la multiplicacion
           resultado = num1 * num2;
           operacion = "multiplicación";
           signo = "*";
         }
-        else if (opcion == 4) {
-          resultado = num1 / num2;
-          operacion = "división";
-          signo = "/";
+        else if (opcion == 4) { // realiza la division
+          if (num2 == 0){ // valida numeros validos para realizar la division
+            System.out.println("No se puede dividir entre 0");
+            continue;
+          }
+          else{
+            resultado = num1 / num2;
+            operacion = "división";
+            signo = "/";
+          }
         }
-
+        // mensajes de respuesta
         System.out.println("El resultado de la "+operacion+" "+num1+" "+signo+" "+num2+" es igual a: "+resultado+"\n");
 
         System.out.println("Preione ENTER para continuar o ingrese otro caracter para cerrar el programa: ");
+        teclado.nextLine(); // limpia el salto de línea
         String opcion2 = teclado.nextLine();
 
-        if (opcion2 == ""){
+        if (opcion2.equals("")){
           continue;
         }
         else{
@@ -69,7 +77,7 @@ void main() {
         }
       }
     }
-    catch (Exception e){
+    catch (Exception e){ // catch por si ingresa algo invalido y el prograga no colapse
       System.out.println("Número errado y/o caracter invalido");
       break;
     }
