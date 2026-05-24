@@ -26,7 +26,47 @@ void main() {
         continue;
       }
       else {
-        System.out.println("continuará...");
+        System.out.println("Ingresa el primero número: ");
+        int num1 = teclado.nextInt();
+
+        System.out.println("Ingrese el segundo numero: ");
+        int num2 = teclado.nextInt();
+
+        double resultado = 0;
+        String operacion = "", signo = "";
+
+        if(opcion == 1){
+          resultado = num1 + num2;
+          operacion = "suma";
+          signo = "+";
+        }
+        else if (opcion == 2) {
+          resultado = num1 - num2;
+          operacion = "resta";
+          signo = "-";
+        }
+        else if (opcion == 3) {
+          resultado = num1 * num2;
+          operacion = "multiplicación";
+          signo = "*";
+        }
+        else if (opcion == 4) {
+          resultado = num1 / num2;
+          operacion = "división";
+          signo = "/";
+        }
+
+        System.out.println("El resultado de la "+operacion+" "+num1+" "+signo+" "+num2+" es igual a: "+resultado+"\n");
+
+        System.out.println("Preione ENTER para continuar o ingrese otro caracter para cerrar el programa: ");
+        String opcion2 = teclado.nextLine();
+
+        if (opcion2 == ""){
+          continue;
+        }
+        else{
+          break;
+        }
       }
     }
     catch (Exception e){
